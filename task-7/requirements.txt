@@ -1,0 +1,2 @@
+# Task 7 uses only Python standard library
+# No external dependencies required
