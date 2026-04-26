@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Dashboard - Real-Time IoT Monitoring</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🏭 Factory Sensor Dashboard</h1>
+            <div class="header-info">
+                <span id="connection-status" class="status disconnected">● Disconnected</span>
+                <span id="client-count">Clients: 0</span>
+                <span id="current-time">--:--:--</span>
+            </div>
+        </header>
+
+        <div class="alerts-section">
+            <h2>⚠️ Active Alerts</h2>
+            <div id="alerts-container" class="alerts-container">
+                <p class="no-alerts">No active alerts</p>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>📊 Temperature (5-min History)</h3>
+                <canvas id="tempChart"></canvas>
+                <div class="chart-stats">
+                    <span>Current: <strong id="current-temp">--</strong>°F</span>
+                    <span>Avg: <strong id="avg-temp">--</strong>°F</span>
+                    <span>Threshold: <strong>100°F</strong></span>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>📈 Vibration (5-min History)</h3>
+                <canvas id="vibrationChart"></canvas>
+                <div class="chart-stats">
+                    <span>Current: <strong id="current-vib">--</strong>g</span>
+                    <span>Avg: <strong id="avg-vib">--</strong>g</span>
+                    <span>Threshold: <strong>0.50g</strong></span>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>📉 Z-Score (Anomaly Detection)</h3>
+                <canvas id="zscoreChart"></canvas>
+                <div class="chart-stats">
+                    <span>Temp Z: <strong id="zscore-temp">--</strong></span>
+                    <span>Vib Z: <strong id="zscore-vib">--</strong></span>
+                    <span>Threshold: <strong>±3.0</strong></span>
+                </div>
+            </div>
+
+            <div class="chart-card sensor-status">
+                <h3>🔍 Sensor Status</h3>
+                <div id="sensor-list" class="sensor-list">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
